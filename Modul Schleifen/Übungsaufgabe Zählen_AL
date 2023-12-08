@@ -1,0 +1,66 @@
+using System;
+
+class Math
+{
+        static void Main(string[] args)
+    {
+        //Aufgabe 1
+        Console.WriteLine("Aufgabe 1");
+        Console.WriteLine();
+
+        for (int zahl = 0; zahl < 1001; zahl++){
+            Console.WriteLine(zahl);
+        }
+        Console.WriteLine();
+        Console.WriteLine();
+        
+
+        
+
+        //Aufgabe 2
+        Console.WriteLine("Aufgabe 2");
+        Console.WriteLine();
+
+        for (int zahl2 = 1000; zahl2 >-100;zahl2 -=100){
+
+            Console.WriteLine(zahl2);
+        }
+        Console.WriteLine();
+        Console.WriteLine();
+
+
+
+        //Aufgabe 4 ist vor Aufgabe 3, da bei Aufgabe 3 eine Eingabe ins Terminal geben muss
+        Console.WriteLine("Aufgabe 4");
+        Console.WriteLine();
+
+        int y = 11;
+        int x = 11;
+
+        for(int i = 1; i < x; i++){
+
+            for(int j = 1; j < y; j++){
+                int ergebnis = i*j;
+                Console.Write("{0, 4}", ergebnis);
+            };
+            Console.WriteLine();
+        }
+        Console.WriteLine();
+        Console.WriteLine();
+
+
+
+        // Leider habe ich es nicht geschafft bis zu 0,001 zu teilen
+        Console.WriteLine("Aufgabe 3");
+        Console.WriteLine();
+
+        float floatZahl = 0.001f;
+
+        Console.WriteLine("Gebe eine Zahl ein");
+        int eingabeZahl = Convert.ToInt32(Console.ReadLine());
+
+        for(float i= eingabeZahl; eingabeZahl > floatZahl; eingabeZahl /= 2){
+            Console.WriteLine(eingabeZahl);
+        }
+    }
+}
