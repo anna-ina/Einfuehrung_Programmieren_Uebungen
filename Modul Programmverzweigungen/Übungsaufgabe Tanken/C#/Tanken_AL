@@ -1,0 +1,66 @@
+using System;
+    class Tanken 
+    {
+        // Angabe der möglichen Treibstoffsorten
+       static double diesel = 1.61;
+       static double superE10 = 1.66;
+       static double superE5 = 1.72;
+        static double superPlus = 1.81;
+
+    static void Main(string[] args)
+        {
+            // Eingabe des Benutzeres wird abgefragt, gelesen und bei den Litern in Double umgewandelt.
+
+            Console.Write("Bitte geben sie die getankten litere ein: ");
+            double liter = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Bitte geben sie die Sote des Treibstoffes ein: ");
+            string sorte = (Console.ReadLine());
+
+
+            // Aufrufen der Methoden ausßerhalb von Main.
+
+            double treibstoffPreis = GetTreibstoffPreise(sorte);
+            double preis = GetPreis(treibstoffPreis, liter);
+
+
+            // Das Finale Ergebnis wird auf der Console ausgegeben.
+
+            Console.Write(String.Format("Sie haben für {0:} getankt" ,preis));
+        }
+
+        // Für die eingegebene Treibstoffsorte wird der zugehörige Preis zurückgegeben.
+        public static double GetTreibstoffPreise(string sorte){
+            switch(sorte){
+                case "Diesel":
+                Console.WriteLine("Sie haben Diesel ausgewählt.");
+                return  diesel;
+
+                case "SuperE10":
+                Console.WriteLine("Sie haben SuperE10 ausgewählt.");
+                return superE10;
+
+                case "SuperE5":
+                Console.WriteLine("Sie haben SuperE5 ausgewählt.");
+                return superE5;
+
+                case "Super Plus":
+                Console.WriteLine("Sie haben Super Plus ausgewählt.");
+                return superPlus;
+
+                default:
+                throw new ArgumentException("Bitte wähle ziwschen Diesel, SuperE10, SuperE5 oder Super Plus.");
+
+            }
+        }
+
+        // Der Finale Preis wird berechnet. Für eine Litermenge von >=100 wird der Rabatt von 5% abgezogen.
+         static double GetPreis(double treibstoffPreis, double liter){
+            
+             double preis = treibstoffPreis * liter;
+             if(liter >= 100){
+            double rabatt = preis * 0.05;
+            preis -= rabatt;
+            }
+            return preis;
+          }
+    }
