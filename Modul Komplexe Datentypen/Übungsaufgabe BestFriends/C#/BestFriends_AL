@@ -1,0 +1,121 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+
+class BestFriends()
+{
+
+    static void Main()
+    {
+        // Erstellen des bestFriends Arrays
+        string[] bestFriends = new string[] { "Lisa", "Jen", "Sally" };
+
+        // Ausgabe in das Terminal
+        foreach (string friend in bestFriends)
+        {
+            Console.WriteLine(friend);
+        }
+
+        //Abfrage ob etwas geändert werden soll
+        Console.WriteLine("Möchtest du etwas ändern? Antowrte mit ja oder nein");
+
+        string abfrage = Console.ReadLine() ?? string.Empty;
+        abfrage = abfrage.ToLower();
+
+        if (abfrage == "nein")
+        {
+            Console.WriteLine("Deine Freunde:");
+            foreach (string friend in bestFriends)
+            {
+                Console.WriteLine(friend);
+            }
+            return;
+
+        }
+        else if (abfrage != "ja")
+        {
+            Console.WriteLine("Ungültige Eingabe");
+            return;
+        }
+
+
+        Console.WriteLine("Was möchten Sie ändern? Einen Freund hinzufügen oder rauswerfen?");
+        Console.WriteLine("Antworten Sie mit hinzufuegen oder rauswerfen");
+
+        string abfrage2 = Console.ReadLine() ?? string.Empty;
+        abfrage2 = abfrage2.ToLower();
+
+
+        // Freund rauswerfen
+        if (abfrage2 == "rauswerfen")
+        {
+            string[] updatedBestFriends = RemoveFriend(bestFriends);
+
+            // Freund hinzufügen
+        }
+        else if (abfrage2 == "hinzufuegen")
+        {
+            string[] updatedBestFriends = AddFriend(bestFriends);
+        }
+        else
+        {
+            Console.WriteLine("eingabe nicht erkannt");
+        }
+    }
+
+
+    //Methode zum Freund rauswerfen
+    public static string[] RemoveFriend(string[] bestFriends)
+    {
+        Console.WriteLine("Welchen Freund möchten Sie rauswerfen?");
+        string removeFriend = Console.ReadLine() ?? string.Empty;
+
+        List<string> tempList = new List<string>();
+
+        foreach (string friend in bestFriends)
+        {
+            if (friend != removeFriend)
+            {
+                tempList.Add(friend);
+            }
+        }
+
+        bestFriends = tempList.ToArray();
+
+        Console.WriteLine("Deine Freunde:");
+        foreach (string friend in bestFriends)
+        {
+            Console.WriteLine(friend);
+        }
+        return bestFriends;
+    }
+
+
+    //Methode zum Freund hinzufügen
+    public static string[] AddFriend(string[] bestFriends)
+    {
+
+        Console.WriteLine("Welchen Freund möchten Sie hinzufügen?");
+        string addFriend = Console.ReadLine() ?? string.Empty;
+
+        List<string> tempList2 = new List<string>();
+
+        foreach (string friend in bestFriends)
+        {
+            if (friend != addFriend)
+            {
+                tempList2.Add(friend);
+            }
+        }
+        tempList2.Add(addFriend);
+        bestFriends = tempList2.ToArray();
+
+        Console.WriteLine("Deine Freunde:");
+        foreach (string friend in bestFriends)
+        {
+            Console.WriteLine(friend);
+        }
+
+        return bestFriends;
+    }
+}
